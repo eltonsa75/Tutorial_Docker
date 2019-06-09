@@ -11,8 +11,7 @@
     "node-restful": "^0.2.6"
   },
   "devDependencies": {},
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC"

@@ -35,12 +35,13 @@
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script>
+        /* Endereço da API */
         const API = 'http://localhost:3000'
 
         const createButton = (label, type) => {
             return $('<button>').addClass(`btn btn-${type}`).html(label)
         }
-        
+        /* Criando o Botão Atualizar - Excluir */
         const renderRows = clients => {
             const rows = clients.map(client => {
                 const updateButton = createButton(' Atualizar ', 'warning')
@@ -55,12 +56,12 @@
             })
             $('#clientsRows').html(rows)
         }
-
+        /* Method que Carrega os campos para atualizar */
         const loadClient = client => {
             $('[name=id]').val(client._id)
             $('[name=name]').val(client.name)
         }
-
+        /* Method para Remover o ID na API */
         const removeClient = client => {
             $.ajax({
                 method: 'DELETE',
@@ -68,7 +69,7 @@
                 success: getClients
             })
         }
-
+        /* Method Get / Limpa o campo */
         const getClients = () => {
             $.ajax({
                 url: `${API}/clients`,
@@ -78,7 +79,7 @@
                 }
             })
         }
-
+        /* Method que Salva o id na API */
         const saveClient = () => {
             const _id = $('[name=id]').val()
             const name = $('[name=name]').val()
